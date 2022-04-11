@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Drawers from "./assets/drawers.jpg";
 import AvatarMichelle from "./assets/avatar-michelle.jpg";
@@ -6,6 +6,14 @@ import { ReactComponent as IconShare } from "./assets/icon-share.svg";
 
 const App = () => {
   const [showPopOver, setShowPopOver] = useState(false);
+  const [currWidth, setCurrWidth] = useState(window.innerWidth);
+
+  // Get the current window width
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setCurrWidth(window.innerWidth);
+    });
+  }, [currWidth]);
 
   return (
     <>
@@ -23,7 +31,7 @@ const App = () => {
           <div className="absolute bottom-0 h-[315px] w-full bg-white">
             <h1 className="mx-[32.5px] mt-[38px] text-[0.99rem] font-bold leading-[24px] text-[#48556A]">
               Shift the overall look and feel by adding these wonderful touches
-              to furniture in your home
+              to furniture in your home {currWidth}
             </h1>
 
             <p className="mx-[32.5px] mt-[13px] text-[0.8rem] text-[#707F93]">
@@ -33,25 +41,45 @@ const App = () => {
             </p>
 
             <div className="absolute bottom-0 h-[66.5px] w-full">
-              <div className="flex gap-[57px] px-[30px]">
-                <div className="flex gap-[20px]">
-                  <img
-                    src={AvatarMichelle}
-                    alt="Avatar"
-                    className="h-[40px] w-[40px] rounded-full"
-                  />
+              {currWidth < 1024 ? (
+                showPopOver ? (
+                  <div className="flex gap-[57px] px-[30px]">
+                    <div className="flex gap-[20px]">
+                      <img
+                        src={AvatarMichelle}
+                        alt="Avatar"
+                        className="h-[40px] w-[40px] rounded-full"
+                      />
 
-                  <div className="mt-[2px] flex flex-col gap-[2px]">
-                    <p className="text-[0.8rem] font-bold text-[#48556A]">
-                      Michelle Appleton
-                    </p>
-                    <p className="text-[0.8rem] text-[#9DAEC2]">28 Jun 2020</p>
+                      <div className="mt-[2px] flex flex-col gap-[2px]">
+                        <p className="text-[0.8rem] font-bold text-[#48556A]">
+                          Michelle Appleton
+                        </p>
+                        <p className="text-[0.8rem] text-[#9DAEC2]">
+                          28 Jun 2020
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-[5px] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#ECF2F8]">
+                      <IconShare
+                        fill="#6E8098"
+                        onClick={() => setShowPopOver(!showPopOver)}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="mt-[5px] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#ECF2F8]">
-                  <IconShare />
-                </div>
-              </div>
+                ) : (
+                  <div className="flex h-full w-full bg-[#48556A]">
+                    <div className="mt-[5px] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#707F93]">
+                      <IconShare
+                        fill="white"
+                        onClick={() => setShowPopOver(!showPopOver)}
+                      />
+                    </div>
+                  </div>
+                )
+              ) : (
+                <h1>Hola</h1>
+              )}
             </div>
           </div>
         </div>
