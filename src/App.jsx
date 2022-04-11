@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import Drawers from "./assets/drawers.jpg";
+
 const App = () => {
   const [showPopOver, setShowPopOver] = useState(false);
 
@@ -9,7 +11,10 @@ const App = () => {
         role="application"
         className="flex min-h-screen items-center justify-center bg-[#ECF2F8]"
       >
-        <div className="h-[515px] w-[330px] rounded-xl bg-white"></div>
+        <div className="relative h-[515px] w-[330px] overflow-hidden rounded-xl bg-white">
+          <img src={Drawers} alt="Drawers" className="-z-10" />
+          <div className="absolute bottom-0 h-[295px] w-full bg-white"></div>
+        </div>
         {/* <div className="relative flex justify-center">
           <button
             className="rounded-xl bg-cyan-400 p-px text-[25px] font-bold transition duration-500 ease-in-out hover:bg-cyan-900"
