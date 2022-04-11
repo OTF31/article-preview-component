@@ -11,9 +11,21 @@ const App = () => {
         role="application"
         className="flex min-h-screen items-center justify-center bg-[#ECF2F8]"
       >
-        <div className="relative h-[515px] w-[330px] overflow-hidden rounded-xl bg-white">
-          <img src={Drawers} alt="Drawers" className="-z-10" />
-          <div className="absolute bottom-0 h-[295px] w-full bg-white"></div>
+        <div className="relative h-[515px] w-[328px] overflow-hidden rounded-xl bg-white">
+          {/* <img src={Drawers} alt="Drawers" className="-z-10" /> */}
+          <img src={Drawers} alt="Drawers" className="relative bottom-4" />
+          <div className="absolute bottom-0 h-[310px] w-full bg-white">
+            <h1>
+              Shift the overall look and feel by adding these wonderful touches
+              to furniture in your home
+            </h1>
+            <p>
+              Ever been in a room and felt like something was missing? Perhaps
+              it felt slightly bare and uninviting. I've got some simple tips to
+              help you make any room feel complete.
+            </p>
+            <div className="absolute bottom-0 h-5 w-full bg-black"></div>
+          </div>
         </div>
         {/* <div className="relative flex justify-center">
           <button
