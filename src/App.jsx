@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 
 import Drawers from "./assets/drawers.jpg";
+
 import AvatarMichelle from "./assets/avatar-michelle.jpg";
 import { ReactComponent as IconShare } from "./assets/icon-share.svg";
+import { ReactComponent as IconFacebook } from "./assets/icon-facebook.svg";
+import { ReactComponent as IconTwitter } from "./assets/icon-twitter.svg";
+import { ReactComponent as IconPinterest } from "./assets/icon-pinterest.svg";
 
 const App = () => {
   const [showPopOver, setShowPopOver] = useState(false);
@@ -31,7 +35,7 @@ const App = () => {
           <div className="absolute bottom-0 h-[315px] w-full bg-white">
             <h1 className="mx-[32.5px] mt-[38px] text-[0.99rem] font-bold leading-[24px] text-[#48556A]">
               Shift the overall look and feel by adding these wonderful touches
-              to furniture in your home {currWidth}
+              to furniture in your home
             </h1>
 
             <p className="mx-[32.5px] mt-[13px] text-[0.8rem] text-[#707F93]">
@@ -40,10 +44,18 @@ const App = () => {
               help you make any room feel complete.
             </p>
 
-            <div className="absolute bottom-0 h-[66.5px] w-full">
+            <div
+              className={`absolute bottom-0 w-full ${
+                currWidth < 1024
+                  ? showPopOver
+                    ? "h-[55px]"
+                    : "h-[66.5px]"
+                  : ""
+              }`}
+            >
               {currWidth < 1024 ? (
                 showPopOver ? (
-                  <div className="flex gap-[57px] px-[30px]">
+                  <div className="flex gap-[57px] bg-white px-[30px] transition duration-75 ease-in">
                     <div className="flex gap-[20px]">
                       <img
                         src={AvatarMichelle}
@@ -60,20 +72,28 @@ const App = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="mt-[5px] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#ECF2F8]">
-                      <IconShare
-                        fill="#6E8098"
-                        onClick={() => setShowPopOver(!showPopOver)}
-                      />
+                    <div
+                      className="mt-[5px] flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full bg-[#ECF2F8]"
+                      onClick={() => setShowPopOver(!showPopOver)}
+                    >
+                      <IconShare fill="#6E8098" />
                     </div>
                   </div>
                 ) : (
-                  <div className="flex h-full w-full bg-[#48556A]">
-                    <div className="mt-[5px] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#707F93]">
-                      <IconShare
-                        fill="white"
-                        onClick={() => setShowPopOver(!showPopOver)}
-                      />
+                  <div className="flex h-full w-full items-center gap-[57px] bg-[#48556A] px-[32px] transition duration-500 ease-out">
+                    <div className="flex gap-4">
+                      <p className="text-[0.8rem] tracking-[0.4em] text-[#9DAEC2]">
+                        SHARE
+                      </p>
+                      <IconFacebook className="cursor-pointer fill-white hover:scale-125 hover:bg-white hover:fill-[#4267B2]" />
+                      <IconTwitter className="cursor-pointer fill-white hover:scale-125 hover:fill-[#1DA1F2]" />
+                      <IconPinterest className="cursor-pointer  fill-white hover:scale-125 hover:bg-white hover:fill-[#E60023]" />
+                    </div>
+                    <div
+                      className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full bg-[#707F93]"
+                      onClick={() => setShowPopOver(!showPopOver)}
+                    >
+                      <IconShare fill="white" />
                     </div>
                   </div>
                 )
