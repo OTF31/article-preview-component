@@ -87,9 +87,9 @@ const App = () => {
                       <p className="text-[0.8rem] tracking-[0.4em] text-[#9DAEC2]">
                         SHARE
                       </p>
-                      <IconFacebook className="cursor-pointer fill-white hover:scale-125 hover:bg-white hover:fill-[#4267B2]" />
-                      <IconTwitter className="cursor-pointer fill-white hover:scale-125 hover:fill-[#1DA1F2]" />
-                      <IconPinterest className="cursor-pointer  fill-white hover:scale-125 hover:bg-white hover:fill-[#E60023]" />
+                      <IconFacebook className="cursor-pointer fill-white transition duration-500 ease-in-out hover:scale-125 hover:bg-white hover:fill-[#4267B2]" />
+                      <IconTwitter className="cursor-pointer fill-white transition duration-500 ease-in-out hover:scale-125 hover:fill-[#1DA1F2]" />
+                      <IconPinterest className="cursor-pointer fill-white transition duration-500 ease-in-out hover:scale-125 hover:bg-white hover:fill-[#E60023]" />
                     </div>
                     <div
                       className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full bg-[#707F93]"
@@ -100,7 +100,7 @@ const App = () => {
                   </div>
                 )
               ) : (
-                <div className="flex gap-[57px] bg-white px-[30px] transition duration-75 ease-in lg:mx-[10px] lg:mt-[20px] lg:gap-[160px]">
+                <div className="flex gap-[57px] bg-white px-[30px] lg:mx-[10px] lg:mt-[20px] lg:gap-[160px]">
                   <div className="flex gap-[20px] lg:gap-[16px]">
                     <img
                       src={AvatarMichelle}
@@ -119,7 +119,7 @@ const App = () => {
                   </div>
 
                   <div
-                    className={`mt-[5px] flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full ${
+                    className={`mt-[5px] flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full transition duration-500 ease-in-out ${
                       showPopOver ? "bg-[#707F93]" : "bg-[#ECF2F8]"
                     }`}
                     onClick={() => setShowPopOver(!showPopOver)}
@@ -132,9 +132,9 @@ const App = () => {
                             <p className="text-[0.8rem] tracking-[0.4em] text-[#9DAEC2]">
                               SHARE
                             </p>
-                            <IconFacebook className="cursor-pointer fill-white hover:scale-125 hover:bg-white hover:fill-[#4267B2]" />
-                            <IconTwitter className="cursor-pointer fill-white hover:scale-125 hover:fill-[#1DA1F2]" />
-                            <IconPinterest className="cursor-pointer  fill-white hover:scale-125 hover:bg-white hover:fill-[#E60023]" />
+                            <IconFacebook className="cursor-pointer fill-white transition duration-500 ease-in-out hover:scale-125 hover:bg-white hover:fill-[#4267B2]" />
+                            <IconTwitter className="cursor-pointer fill-white transition duration-500 ease-in-out hover:scale-125 hover:fill-[#1DA1F2]" />
+                            <IconPinterest className="cursor-pointer fill-white transition duration-500  ease-in-out hover:scale-125 hover:bg-white hover:fill-[#E60023]" />
                           </div>
                           <div className="absolute bottom-0 h-[18px] w-[18px] origin-bottom-left rotate-[45deg] lg:bg-[#48556A]"></div>
                         </div>
@@ -146,27 +146,6 @@ const App = () => {
             </div>
           </div>
         </div>
-        {/* <div className="relative flex justify-center">
-          <button
-            className="rounded-xl bg-cyan-400 p-px text-[25px] font-bold transition duration-500 ease-in-out hover:bg-cyan-900"
-            onClick={() => setShowPopOver(!showPopOver)}
-          >
-            Click me to show a popover!
-          </button>
-          {showPopOver && (
-            <div className="absolute bottom-[60px]">
-              <div className="relative flex h-[60px] w-[250px] items-center justify-center gap-1 rounded-xl border-2 border-black">
-                <div>SHARE</div>
-                <div>ICON 1</div>
-                <div>ICON 2</div>
-                <div onClick={() => alert("OTF")} className="cursor-pointer">
-                  ICON 3
-                </div>
-                <div className="absolute bottom-0 h-[18px] w-[18px] origin-bottom-left translate-y-[2px] rotate-[45deg] border-r-2 border-b-2 border-black bg-white"></div>
-              </div>
-            </div>
-          )}
-        </div> */}
       </div>
     </>
   );
