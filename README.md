@@ -4,7 +4,7 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 
 ---
 
-[See in GitHub Pages](https://denisomarcuyottito.github.io/article-preview-component/)
+[See in GitHub Pages](https://OTF31.github.io/article-preview-component/)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/75378049/163266172-1493bf9f-fe26-4a8f-adb6-aad076e37535.png" />
